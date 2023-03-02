@@ -8,11 +8,20 @@ import Contacts from "./pages/Contacts/contacts";
 import Category from "./pages/Category/category";
 import Info from "./pages/Info/info";
 import Payment from "./pages/Payment/payment";
+import Menu from "./components/BurgerMenu/menu";
+import Signs from "./components/Signs/signs";
+import React, {useState} from "react";
 
 function App() {
+    const [signUp,setSignUp] = useState(false)
+    const [signIn,setSignIn] = useState(false)
+    const [menu,setMenu] = useState(false)
+
   return (
     <>
-      <Header/>
+      <Header menu={menu} setMenu={setMenu} signIn={signIn} setSignIn={setSignIn} signUp={signUp} setSignUp={setSignUp}/>
+        <Menu menu={menu} setMenu={setMenu} signIn={signIn} setSignIn={setSignIn} signUp={signUp} setSignUp={setSignUp}/>
+        <Signs signIn={signIn} setSignIn={setSignIn} signUp={signUp} setSignUp={setSignUp}/>
       <Routes>
           <Route path={'/'} element={<Home/>}/>
           <Route path={'/about'} element={<About/>}/>
