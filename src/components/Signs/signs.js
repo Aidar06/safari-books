@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {IoCloseOutline} from "react-icons/io5";
-
+import {IoCloseOutline, IoEyeSharp} from "react-icons/io5";
+import {BsFillEyeSlashFill} from "react-icons/bs";
 
 const Signs = ({signUp,setSignUp,setSignIn,signIn}) => {
 
@@ -20,6 +20,7 @@ const Signs = ({signUp,setSignUp,setSignIn,signIn}) => {
         }, 700)
     }
 
+    const [eyes,setEyes] = useState(true)
 
     return (
         <div style={{
@@ -40,7 +41,12 @@ const Signs = ({signUp,setSignUp,setSignIn,signIn}) => {
                     </div>
                     <div className="signs--group__block--input">
                         <h3>Password</h3>
-                        <input type="password"/>
+                        <input type={eyes? 'password' : 'text'}/>
+                        <div onClick={()=> setEyes(!eyes)} className='signs--group__block--input__icon'>
+                            {
+                                eyes? <IoEyeSharp/>: <BsFillEyeSlashFill/>
+                            }
+                        </div>
                     </div>
                     <button>Sign in</button>
                 </div>
@@ -61,7 +67,12 @@ const Signs = ({signUp,setSignUp,setSignIn,signIn}) => {
                     </div>
                     <div className="signs--group__block--input">
                         <h3>Password</h3>
-                        <input type="password"/>
+                        <input type={eyes? 'password' : 'text'}/>
+                        <div onClick={()=> setEyes(!eyes)} className='signs--group__block--input__icon'>
+                            {
+                                eyes? <IoEyeSharp/>: <BsFillEyeSlashFill/>
+                            }
+                        </div>
                     </div>
                     <button>Sign up</button>
                 </div>
