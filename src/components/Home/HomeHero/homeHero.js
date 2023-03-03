@@ -7,7 +7,7 @@ const HomeHero = () => {
             <img src={books} alt=""/>
             <div className="container">
                 <div className="block">
-                    <h1 className="block--book">BUY BOOKS <br/> WHEREVER YOU ARE</h1>
+                    <h1 className="block--book">BUY BOOKS WHEREVER YOU ARE</h1>
                 </div>
             </div>
         </section>
