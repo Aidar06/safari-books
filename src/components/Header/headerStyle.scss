@@ -1,51 +1,60 @@
-#header{
+#header {
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 9;
   background: rgba(255, 255, 255, 0.71);
   backdrop-filter: blur(5px);
-  .header{
-    &--navbar{
+
+  .header {
+    &--navbar {
       padding: 20px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid rgba(19, 19, 19, 0.11);
-      &__icon{
+
+      &__icon {
         font-size: 24px;
         transition: .5s;
         display: none;
-        div{
+
+        div {
           display: flex;
           justify-content: center;
           align-items: center;
         }
       }
-      &__nav{
+
+      &__nav {
         display: flex;
         align-items: center;
-        h1{
+
+        h1 {
           font-weight: 400;
           font-size: 36px;
           color: #000000;
           font-family: 'EB Garamond', sans-serif;
         }
-        &--a{
+
+        &--a {
           font-weight: 400;
           font-size: 20px;
           color: #000000;
           margin: 5px 25px 0 25px;
         }
       }
-      &__block{
+
+      &__block {
         display: flex;
         align-items: center;
-        div{
+
+        div {
           display: flex;
           align-items: center;
           margin-right: 20px;
-          h2{
+
+          h2 {
             cursor: pointer;
             font-weight: 600;
             font-size: 20px;
@@ -53,7 +62,8 @@
             margin: 0 2px;
           }
         }
-        button{
+
+        button {
           font-weight: 400;
           font-size: 16px;
           color: #000000;
@@ -64,14 +74,17 @@
           border: none;
           transition: .4s;
           margin: 0 5px;
-          &:hover{
+
+          &:hover {
             background: transparent;
           }
         }
       }
-      &__bas{
+
+      &__bas {
         display: none;
-        div{
+
+        div {
           display: flex;
           justify-content: space-around;
           align-items: center;
@@ -79,15 +92,18 @@
         }
       }
     }
-    &--link{
+
+    &--link {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 0;
-      &__search{
+
+      &__search {
         display: flex;
         align-items: center;
-        button{
+
+        button {
           font-weight: 400;
           font-size: 20px;
           color: #000000;
@@ -99,11 +115,13 @@
           border: none;
           transition: .4s;
           margin: 0 5px;
-          &:hover{
+
+          &:hover {
             background: transparent;
           }
         }
-        &--searcher{
+
+        &--searcher {
           margin-left: 15px;
           width: 230px;
           background: transparent;
@@ -112,11 +130,13 @@
           height: 35px;
           display: flex;
           align-items: center;
-          &--icon{
+
+          &--icon {
             margin-left: 7px;
             font-size: 20px;
           }
-          input{
+
+          input {
             background: transparent;
             height: 100%;
             width: 80%;
@@ -126,8 +146,9 @@
           }
         }
       }
-      &__basket{
-        padding:0 15px;
+
+      &__basket {
+        padding: 0 15px;
         height: 35px;
         display: flex;
         background: #FFC121;
@@ -137,17 +158,20 @@
         border-radius: 6px;
         transition: .4s;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
           background: transparent;
         }
-        p{
+
+        p {
           font-size: 18px;
           line-height: 27px;
           display: flex;
           align-items: center;
           color: #000000;
         }
-        div{
+
+        div {
           height: 15px;
           width: 1px;
           background: black;
@@ -158,7 +182,7 @@
   }
 }
 
-.menu{
+.menu {
   background: rgba(0, 0, 0, 0.69);
   backdrop-filter: blur(7px);
   width: 100%;
@@ -169,18 +193,21 @@
   border-radius: 70px 70px 0 0;
   transition: 1s;
   z-index: 9;
-  &--group{
+
+  &--group {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__nav{
+
+    &__nav {
       margin-top: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      button{
+
+      button {
         height: 35px;
         width: 170px;
         display: flex;
@@ -192,30 +219,36 @@
         transition: .4s;
         justify-content: center;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
           background: transparent;
           color: white;
         }
       }
-      &--a{
+
+      &--a {
         font-weight: 400;
         font-size: 25px;
         color: white;
       }
-      span{
+
+      span {
         padding: 20px 0;
       }
     }
-    &__btn{
+
+    &__btn {
       margin-top: 30px;
       width: 100%;
       display: flex;
       justify-content: end;
-      div{
+
+      div {
         display: flex;
         align-items: center;
         margin-right: 20px;
-        h2{
+
+        h2 {
           cursor: pointer;
           font-weight: 600;
           font-size: 20px;
@@ -223,13 +256,15 @@
           margin: 0 2px;
         }
       }
-      &--block{
+
+      &--block {
         margin-top: 20px;
         display: flex;
         align-items: center;
         justify-content: space-around;
       }
-      button{
+
+      button {
         height: 35px;
         width: 140px;
         display: flex;
@@ -242,7 +277,8 @@
         margin: 0 10px;
         justify-content: center;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
           background: transparent;
           color: white;
         }
@@ -251,7 +287,7 @@
   }
 }
 
-.signs{
+.signs {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -260,27 +296,31 @@
   z-index: 10;
   background: rgba(0, 0, 0, 0.56);
   transition: .6s;
-  &--group{
+
+  &--group {
     width: 100%;
     display: flex;
     justify-content: center;
-    .gr-ani-come{
+
+    .gr-ani-come {
       animation: 1s gr-ani-come;
       @keyframes gr-ani-come {
-       0%{
-         transform: translateY(-2000px);
-       }
+        0% {
+          transform: translateY(-2000px);
+        }
       }
     }
-    .gr-ani-leave{
+
+    .gr-ani-leave {
       animation: 1s gr-ani-leave;
       @keyframes gr-ani-leave {
-       100%{
-         transform: translateY(-2000px);
-       }
+        100% {
+          transform: translateY(-2000px);
+        }
       }
     }
-    &__block{
+
+    &__block {
       position: relative;
       width: 30%;
       background: white;
@@ -291,7 +331,8 @@
       border-radius: 10px;
       margin-top: 120px;
       transition: .8s;
-      &--close{
+
+      &--close {
         width: 40px;
         height: 40px;
         background: black;
@@ -305,32 +346,37 @@
         font-size: 24px;
         border-radius: 0 10px 0 10px;
       }
-      h1{
-        font-family: 'EB Garamond',sans-serif;
+
+      h1 {
+        font-family: 'EB Garamond', sans-serif;
         font-weight: 400;
         font-size: 36px;
         text-align: center;
         color: #000000;
       }
-      &--input{
+
+      &--input {
         width: 70%;
         margin-top: 30px;
-        h3{
+
+        h3 {
           font-weight: 400;
           font-size: 14px;
           color: #404040;
         }
-        input{
+
+        input {
           width: 99%;
           height: 27px;
           background: transparent;
           outline: none;
           border-radius: 5px;
-          border:  1px solid rgba(0, 0, 0, 0.49);
+          border: 1px solid rgba(0, 0, 0, 0.49);
           padding-left: 10px;
         }
       }
-      button{
+
+      button {
         font-weight: 400;
         font-size: 16px;
         color: #000000;
@@ -341,7 +387,8 @@
         border: none;
         transition: .4s;
         margin-top: 20px;
-        &:hover{
+
+        &:hover {
           background: transparent;
         }
       }
@@ -349,21 +396,22 @@
   }
 }
 
-.signs-come{
+.signs-come {
   animation: .8s signs-come;
   @keyframes signs-come {
-    0%{
+    0% {
       opacity: 0;
     }
-    100%{
+    100% {
       opacity: 1;
     }
   }
 }
-.signs-leave{
+
+.signs-leave {
   animation: 1s signs-leave;
   @keyframes signs-leave {
-    100%{
+    100% {
       opacity: 0;
     }
   }
@@ -371,9 +419,9 @@
 
 
 @media (max-width: 1200px) {
-  .signs{
-    &--group{
-      &__block{
+  .signs {
+    &--group {
+      &__block {
         width: 60%;
       }
     }
@@ -381,46 +429,50 @@
 }
 
 @media (max-width: 1024px) {
-    #header{
-      .header{
-        &--navbar{
-          &__nav{
-            h1{
-              font-size: 30px;
-            }
-            &--a{
-              font-size: 16px;
-              margin: 8px 10px 0 10px;
-            }
+  #header {
+    .header {
+      &--navbar {
+        &__nav {
+          h1 {
+            font-size: 30px;
           }
-          &__block{
-            div{
-              h2{
-                font-size: 18px;
-              }
+
+          &--a {
+            font-size: 16px;
+            margin: 8px 10px 0 10px;
+          }
+        }
+
+        &__block {
+          div {
+            h2 {
+              font-size: 18px;
             }
           }
         }
       }
     }
+  }
 }
 
 @media (max-width: 920px) {
-  #header{
-    .header{
-      &--navbar{
-        &__nav{
-          h1{
+  #header {
+    .header {
+      &--navbar {
+        &__nav {
+          h1 {
             font-size: 25px;
           }
-          &--a{
+
+          &--a {
             font-size: 14px;
             margin: 8px 10px 0 10px;
           }
         }
-        &__block{
-          div{
-            h2{
+
+        &__block {
+          div {
+            h2 {
               font-size: 16px;
             }
           }
@@ -431,33 +483,37 @@
 }
 
 @media (max-width: 768px) {
-  #header{
-    .header{
-      &--navbar{
-        &__icon{
+  #header {
+    .header {
+      &--navbar {
+        &__icon {
           display: block;
         }
-        &__nav{
-          &--a{
+
+        &__nav {
+          &--a {
             display: none;
           }
         }
-        &__block{
+
+        &__block {
           display: none;
         }
-        &__bas{
+
+        &__bas {
           display: block;
         }
       }
-      &--link{
+
+      &--link {
         display: none;
       }
     }
   }
 
-  .signs{
-    &--group{
-      &__block{
+  .signs {
+    &--group {
+      &__block {
         width: 90%;
       }
     }
@@ -465,28 +521,32 @@
 }
 
 @media (max-width: 576px) {
-  .menu{
-    &--group{
-      &__nav{
-        button{
+  .menu {
+    &--group {
+      &__nav {
+        button {
           height: 30px;
           width: 150px;
         }
-        &--a{
+
+        &--a {
           font-size: 20px;
         }
-        span{
+
+        span {
           padding: 20px 0;
         }
       }
-      &__btn{
-        div{
-          h2{
+
+      &__btn {
+        div {
+          h2 {
             font-size: 17px;
             color: white;
           }
         }
-        button{
+
+        button {
           height: 30px;
           width: 120px;
         }
@@ -494,14 +554,16 @@
     }
   }
 
-  .signs{
-    &--group{
-      &__block{
+  .signs {
+    &--group {
+      &__block {
         width: 90%;
-        h1{
+
+        h1 {
           font-size: 30px;
         }
-        &--input{
+
+        &--input {
           width: 80%;
         }
       }
@@ -514,14 +576,16 @@
 }
 
 @media (max-width: 400px) {
-  .signs{
-    &--group{
-      &__block{
+  .signs {
+    &--group {
+      &__block {
         width: 90%;
-        h1{
+
+        h1 {
           font-size: 24px;
         }
-        &--input{
+
+        &--input {
           width: 80%;
         }
       }
