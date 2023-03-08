@@ -32,7 +32,6 @@ function App() {
           <Route path={'/payment'} element={<Payment/>}/>
       </Routes>
       <Footer/>
-        <InfoBook/>
     </>
   );
 }
