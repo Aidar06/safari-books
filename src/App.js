@@ -11,6 +11,7 @@ import Payment from "./pages/Payment/payment";
 import Menu from "./components/BurgerMenu/menu";
 import Signs from "./components/Signs/signs";
 import React, {useState} from "react";
+import InfoBook from "./pages/Info/InfoBook/infoBook";
 
 function App() {
     const [signUp,setSignUp] = useState(false)
@@ -31,6 +32,7 @@ function App() {
           <Route path={'/payment'} element={<Payment/>}/>
       </Routes>
       <Footer/>
+        <InfoBook/>
     </>
   );
 }
