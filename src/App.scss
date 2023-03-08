@@ -7,6 +7,8 @@
 @import "./../src/pages/Category/categoryStyle";
 @import "./../src/pages/Info/infoStyle";
 @import "./../src/pages/Payment/paymentStyle";
+@import "./../src/components/BooksCard/booksCardStyle";
+
 
 .container{
   width: 1140px;
@@ -18,6 +20,7 @@
       width: 85%;
     }
 }
+
 
 *{
   margin: 0;

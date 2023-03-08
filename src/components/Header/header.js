@@ -13,6 +13,9 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
         navigate('/payment')
     }
 
+    const navToCat=()=>{
+        navigate('/category/Fiction')
+    }
 
     return (
         <header id='header'>
@@ -54,7 +57,7 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                     </div>
                     <div className="header--link">
                         <div className="header--link__search">
-                            <button onClick={()=> navTo()}>Catalog</button>
+                            <button onClick={()=> navToCat()}>Catalog</button>
                             <div className="header--link__search--searcher">
                                 <BiSearchAlt className='header--link__search--searcher--icon'/>
                                 <input type="text" placeholder='Search for title or author'/>
