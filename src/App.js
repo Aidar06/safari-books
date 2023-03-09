@@ -1,7 +1,7 @@
 import './App.scss';
 import Header from "./components/Header/header";
 import Footer from "./components/Footer/footer";
-import {Routes,Route} from "react-router";
+import {Routes, Route} from "react-router";
 import Home from "./components/Home/home";
 import About from "./pages/About/about";
 import Contacts from "./pages/Contacts/contacts";
@@ -12,6 +12,7 @@ import Menu from "./components/BurgerMenu/menu";
 import Signs from "./components/Signs/signs";
 import React, {useState} from "react";
 import InfoBook from "./pages/Info/InfoBook/infoBook";
+import Search from "./pages/Search/search";
 
 function App() {
     const [signUp,setSignUp] = useState(false)
@@ -30,6 +31,7 @@ function App() {
           <Route path={'/category/:name'} element={<Category/>}/>
           <Route path={'/info'} element={<Info/>}/>
           <Route path={'/payment'} element={<Payment/>}/>
+          <Route path={'/search/:book'} element={<Search/>}/>
       </Routes>
       <Footer/>
     </>

@@ -17,6 +17,23 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
         navigate('/category/Fiction')
     }
 
+    const [value,setValue] = useState('')
+
+    let [input,setInput] = useState(true)
+
+    function navTpSearch(){
+        if (value.length !== 0){
+            navigate(`/search/${value}`)
+        }else {
+            setInput(false)
+            setTimeout(()=> {
+                setInput(true)
+            }, 3000)
+        }
+    }
+
+    const [searcher,setSearcher] = useState(false)
+
     return (
         <header id='header'>
             <div className="container">
@@ -50,17 +67,21 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                         </div>
                         <div className='header--navbar__bas'>
                             <div>
-                                <BiSearchAlt/>
-                                <RiShoppingBag2Line/>
+                                <BiSearchAlt onClick={()=> setSearcher(!searcher)}/>
+                                <RiShoppingBag2Line onClick={()=> navTo()}/>
                             </div>
                         </div>
                     </div>
                     <div className="header--link">
                         <div className="header--link__search">
                             <button onClick={()=> navToCat()}>Catalog</button>
-                            <div className="header--link__search--searcher">
-                                <BiSearchAlt className='header--link__search--searcher--icon'/>
-                                <input type="text" placeholder='Search for title or author'/>
+                            <div style={{
+                                border: input ? '' : '1px solid red'
+                            }} className="header--link__search--searcher">
+                                <BiSearchAlt onClick={()=> navTpSearch()} className='header--link__search--searcher--icon'/>
+                                <input onKeyDown={(e) => {
+                                    if (e.key === 'Enter') navTpSearch()
+                                }} onChange={(e)=> setValue(e.target.value)} type="text" placeholder='Search for title or author'/>
                             </div>
                         </div>
                         <div onClick={()=> navTo()} className="header--link__basket">
@@ -68,6 +89,14 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                             <div></div>
                             <RiShoppingBag2Line/>
                         </div>
+                    </div>
+                    <div style={{
+                        top: searcher? '' : '-1000px'
+                    }} className='header--searcher'>
+                        <BiSearchAlt onClick={()=> navTpSearch()} className='header--searcher__icon'/>
+                        <input onKeyDown={(e) => {
+                            if (e.key === 'Enter') navTpSearch()
+                        }} onChange={(e)=> setValue(e.target.value)} type="text" placeholder='Search for title or author'/>
                     </div>
                 </div>
             </div>
