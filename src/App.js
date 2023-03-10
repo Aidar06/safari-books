@@ -13,6 +13,7 @@ import Signs from "./components/Signs/signs";
 import React, {useState} from "react";
 import InfoBook from "./pages/Info/InfoBook/infoBook";
 import Search from "./pages/Search/search";
+import Account from "./pages/Account/account";
 
 function App() {
     const [signUp,setSignUp] = useState(false)
@@ -31,6 +32,7 @@ function App() {
           <Route path={'/category/:name'} element={<Category/>}/>
           <Route path={'/info'} element={<Info/>}/>
           <Route path={'/payment'} element={<Payment/>}/>
+          <Route path={'/account'} element={<Account/>}/>
           <Route path={'/search/:book'} element={<Search/>}/>
       </Routes>
       <Footer/>

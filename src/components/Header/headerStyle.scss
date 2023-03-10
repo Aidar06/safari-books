@@ -53,6 +53,18 @@
         display: flex;
         align-items: center;
 
+        &--acc{
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          background: aqua;
+          color: white;
+          font-size: 20px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
         div {
           display: flex;
           align-items: center;
@@ -285,6 +297,18 @@
       display: flex;
       justify-content: end;
       color: black;
+      &--acc{
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background: aqua;
+        color: white;
+        font-size: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
       div {
         display: flex;
@@ -375,6 +399,14 @@
       margin-top: 120px;
       transition: .8s;
 
+      &--text{
+        position: absolute;
+        top: 15px;
+        font-size: 19px;
+        color: red;
+        font-weight: 500;
+      }
+
       &--close {
         width: 40px;
         height: 40px;
@@ -407,6 +439,11 @@
             font-weight: 400;
             font-size: 14px;
             color: #404040;
+            span{
+              font-size: 13px;
+              margin-left: 10px;
+              color: red;
+            }
           }
 
           input {
@@ -421,10 +458,30 @@
 
           &__icon {
             position: absolute;
-            bottom: 0;
+            bottom: 24px;
             right: 10px;
             font-size: 20px;
           }
+
+        &__icon1 {
+          position: absolute;
+          bottom: 0;
+          right: 10px;
+          font-size: 20px;
+        }
+
+        h4{
+          font-size: 15px;
+          text-align: end;
+          font-weight: 400;
+          text-decoration: underline;
+          margin-top: 7px;
+          cursor: pointer;
+          transition: .2s;
+          &:hover{
+            color: red;
+          }
+        }
         }
 
         button {

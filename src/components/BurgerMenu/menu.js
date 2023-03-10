@@ -12,6 +12,24 @@ const Menu = ({menu,setMenu,signIn,setSignIn,signUp,setSignUp}) => {
         navigate(`/category/${tap}`)
     }
 
+    let account = {}
+    let accIn = false
+    let arrAcc = []
+
+    function getAccount(){
+        let acc = JSON.parse(localStorage.getItem('accounts')) || []
+
+        acc.map(el => {
+            if (el.inAcc === true){
+                accIn = el.inAcc
+                account = el
+            }
+            arrAcc.push(el)
+        })
+
+    }
+    getAccount()
+
     return (
         <div className='menu' style={{
             left: menu? '': '-130%'
@@ -24,13 +42,25 @@ const Menu = ({menu,setMenu,signIn,setSignIn,signUp,setSignUp}) => {
                                 <h2 style={{color: 'black'}}>Ru</h2>
                                 <h2 style={{color: 'black'}}>En</h2>
                             </div>
-                            <button onClick={()=> {setSignUp(!signUp); setMenu(!menu)}}>sing up</button>
-                            <button onClick={()=> {setSignIn(!signIn); setMenu(!menu)}}>sing in</button>
+                        {
+                            accIn? <NavLink to={'/account'}>
+                                <div onClick={()=> setMenu(!menu)} className='menu--group__btn--acc'>
+                                    <p>
+                                        {account.name[0].toUpperCase()}
+                                    </p>
+                                </div>
+                            </NavLink>:
+                                <div className='menu--group__btn--buttons'>
+                                    <button onClick={()=> {setSignUp(!signUp); setMenu(!menu)}}>sing up</button>
+                                    <button onClick={()=> {setSignIn(!signIn); setMenu(!menu)}}>sing in</button>
+                                </div>
+                        }
+
                     </div>
                     <div className="menu--group__nav">
                         <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/about'}>About us</NavLink></span>
                         <div>
-                            <select onChange={(e)=> navToCat(e.target.value)}>
+                            <select onChange={(e)=> {navToCat(e.target.value); setMenu(!menu)}}>
                                 <option>Fiction</option>
                                 <option>Children`s book</option>
                                 <option>Books for teenagers</option>

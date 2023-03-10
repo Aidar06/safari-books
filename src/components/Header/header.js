@@ -34,6 +34,24 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
 
     const [searcher,setSearcher] = useState(false)
 
+    let account = {}
+    let accIn = false
+    let arrAcc = []
+
+    function getAccount(){
+        let acc = JSON.parse(localStorage.getItem('accounts')) || []
+
+        acc.map(el => {
+            if (el.inAcc === true){
+                accIn = el.inAcc
+                account = el
+            }
+            arrAcc.push(el)
+        })
+
+    }
+    getAccount()
+
     return (
         <header id='header'>
             <div className="container">
@@ -62,8 +80,19 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                                 <h2>En</h2>
                             </div>
 
-                            <button onClick={()=> setSignUp(!signUp)}>Sign up</button>
-                            <button onClick={()=> setSignIn(!signIn)}>Sign in</button>
+                            {
+                                accIn? <NavLink to={'/account'}>
+                                        <div className='header--navbar__block--acc'>
+                                            <p>
+                                                {account.name[0].toUpperCase()}
+                                            </p>
+                                        </div>
+                                    </NavLink>:
+                                  <div>
+                                      <button onClick={()=> setSignUp(!signUp)}>Sign up</button>
+                                      <button onClick={()=> setSignIn(!signIn)}>Sign in</button>
+                                  </div>
+                            }
                         </div>
                         <div className='header--navbar__bas'>
                             <div>
