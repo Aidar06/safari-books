@@ -1,59 +1,75 @@
-#infoBook{
+#infoBook {
   padding: 200px 0 50px 0;
-  .infoBook{
+
+  .infoBook {
     display: flex;
     flex-direction: column;
-    &--about{
+
+    &--about {
       display: flex;
       justify-content: center;
-      &__img{
+
+      &__img {
         width: 20%;
+        height: 10%;
       }
-      &__book{
+
+      &__book {
         padding-left: 40px;
-        &--tittle{
+
+        &--tittle {
           font-size: 32px;
           font-family: 'EB Garamond', sans-serif;
           color: black;
           font-weight: 600;
           width: 70%;
         }
-        &--author{
+
+        &--author {
           font-size: 20px;
           font-family: 'Open Sans', sans-serif;
           font-weight: 300;
         }
-        &--string{
+
+        &--string {
           display: flex;
           padding: 25px 0 10px 0;
           align-items: center;
-          &__rating{
+
+          &__rating {
             display: flex;
             align-items: center;
-            &--number{
+
+            &--number {
               font-size: 26px;
               color: black;
               font-family: 'Open Sans', sans-serif;
             }
-            &--star1{
+
+            &--star1 {
               color: #FFC121;
               padding-left: 5px;
             }
-            &--star{
+
+            &--star {
               color: #FFC121;
             }
-            &--grey{
+
+            &--grey {
               color: #C9C9C9;
             }
           }
-          &__inStock{
+
+          &__inStock {
             display: flex;
-            &--checkIcon{
+
+            &--checkIcon {
               color: #127003;
               font-size: 25px;
               padding: 0 10px 0 50px;
             }
-            &--tittle{
+
+            &--tittle {
               color: #127003;
               font-size: 20px;
               font-family: 'Open Sans', sans-serif;
@@ -61,18 +77,21 @@
             }
           }
         }
-        &--info{
+
+        &--info {
           font-size: 24px;
           font-weight: 500;
           font-family: 'Open Sans', sans-serif;
           padding-bottom: 10px;
-          span{
+
+          span {
             font-size: 20px;
             font-weight: 300;
             font-family: 'Open Sans', sans-serif;
           }
         }
-        &--button{
+
+        &--button {
           font-family: 'Open Sans', sans-serif;
           font-weight: 300;
           font-size: 20px;
@@ -86,18 +105,21 @@
         }
       }
     }
-    &--details{
+
+    &--details {
       display: flex;
       padding-top: 80px;
       justify-content: space-around;
-      &__tittle{
-        &--paragraph{
+
+      &__tittle {
+        &--paragraph {
           font-size: 18px;
           font-weight: 300;
           font-family: 'Open Sans', sans-serif;
           line-height: 27px;
         }
-        &--btn{
+
+        &--btn {
           font-family: 'Open Sans', sans-serif;
           font-size: 20px;
           font-weight: 400;
@@ -110,25 +132,30 @@
           margin-top: 50px;
         }
       }
-      &__format{
+
+      &__format {
         width: 40%;
-        &--line1{
+
+        &--line1 {
           display: flex;
           justify-content: space-between;
           border-bottom: black 1px solid;
           padding: 0 0 20px 0;
-          &__paragraph{
+
+          &__paragraph {
             font-size: 18px;
             font-weight: 300;
             font-family: 'Open Sans', sans-serif;
           }
         }
-        &--line{
+
+        &--line {
           display: flex;
           justify-content: space-between;
           border-bottom: black 1px solid;
           padding: 20px 0;
-          &__paragraph{
+
+          &__paragraph {
             font-size: 18px;
             font-weight: 300;
             font-family: 'Open Sans', sans-serif;
@@ -138,24 +165,355 @@
     }
   }
 }
-
+@mixin center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media (max-width: 1200px) {
+  #infoBook {
+    padding: 225px 0 50px 0;
+
+    .infoBook {
+      &--about {
+        &__img {
+          width: 23%;
+        }
+
+        &__book {
+          &--button {
+            margin-top: 15px;
+          }
+
+          &--info {
+            font-size: 20px;
+
+            span {
+              font-size: 18px;
+            }
+          }
+
+          &--author {
+            font-size: 18px;
+          }
+
+          &--string {
+            padding: 10px 0;
+
+            &__rating {
+              &--number {
+                font-size: 20px;
+              }
+            }
+
+            &__inStock {
+              &--tittle {
+                font-size: 17px;
+              }
+            }
+          }
+        }
+      }
+
+      &--details {
+        &__tittle {
+          &--paragraph {
+            font-size: 17px;
+          }
+        }
+
+        &__format {
+          &--line {
+            &__paragraph {
+              font-size: 15px;
+              font-weight: 400;
+            }
+          }
+
+          &--line1 {
+            &__paragraph {
+              font-size: 15px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
 @media (max-width: 1024px) {
+  #infoBook .infoBook--about__img {
+    width: 27%;
+  }
 }
+
 @media (max-width: 992px) {
+  #infoBook {
+    .infoBook {
+      &--details {
+        &__tittle {
+          &--btn {
+            font-size: 12px;
+            padding: 8px 60px;
+            margin-top: 20px;
+          }
+
+          &--paragraph {
+            font-size: 13px;
+            line-height: 22px;
+            font-weight: 400;
+          }
+        }
+
+        &__format {
+          &--line1 {
+            padding: 0 0 15px 0;
+
+            &__paragraph {
+              font-size: 11px;
+            }
+          }
+
+          &--line {
+            padding: 15px 0;
+
+            &__paragraph {
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
+
+@media (max-width: 900px) {
+  #infoBook .infoBook--about__img {
+    width: 30%;
+  }
+}
+
 @media (max-width: 768px) {
+  #infoBook {
+    padding: 100px 0 50px 0;
+
+    .infoBook {
+      &--about {
+        &__book {
+          &--string {
+            &__inStock {
+              &--checkIcon {
+                font-size: 15px;
+              }
+
+              &--tittle {
+                font-size: 13px;
+              }
+            }
+
+            &__rating {
+              &--number {
+                font-size: 15px;
+              }
+
+              &--star1 {
+                font-size: 13px;
+              }
+
+              &--star {
+                font-size: 13px;
+              }
+
+              &--grey {
+                font-size: 13px;
+              }
+            }
+          }
+
+          &--author {
+            font-size: 14px;
+          }
+
+          &--tittle {
+            font-size: 22px;
+          }
+
+          &--info {
+            font-size: 15px;
+
+            span {
+              font-size: 13px;
+            }
+          }
+
+          &--button {
+            font-size: 15px;
+            padding: 7px 55px;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+  }
 }
+
 @media (max-width: 576px) {
+  #infoBook {
+    .infoBook {
+
+      &--about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__img {
+          width: 40%;
+          margin-bottom: 40px;
+        }
+
+        &__book {
+          &--button {
+            margin-left: 70px;
+            font-size: 12px;
+            padding: 8px 60px;
+          }
+        }
+      }
+
+      &--details {
+        @include center;
+        padding-top: 40px;
+
+        &__tittle {
+          @include center;
+          padding-bottom: 40px;
+
+          &--paragraph {
+            font-size: 11px;
+            line-height: 16px;
+            font-weight: 300;
+          }
+
+          &--btn {
+            margin-bottom: 50px;
+            margin-top: 550px;
+            position: absolute;
+          }
+        }
+
+        &__format {
+          @include center;
+          padding-bottom: 50px;
+
+          &--line {
+            border-bottom: black 0.5px solid;
+            padding: 12px 0;
+            width: 300px;
+
+            &__paragraph {
+              font-size: 8px;
+            }
+          }
+
+          &--line1 {
+            padding: 0 0 12px 0;
+            border-bottom: black 0.5px solid;
+            width: 300px;
+
+            &__paragraph {
+              font-size: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
 @media (max-width: 450px) {
+  #infoBook {
+    .infoBook {
+      &--about {
+        &__book {
+          &--tittle {
+            font-size: 15px;
+          }
+
+          &--author {
+            font-size: 10px;
+          }
+
+          &--string {
+            &__rating {
+              &--number {
+                font-size: 12px;
+              }
+
+              &--star1 {
+                font-size: 11px;
+              }
+
+              &--star {
+                font-size: 11px;
+              }
+
+              &--grey {
+                font-size: 11px;
+              }
+            }
+
+            &__inStock {
+              &--checkIcon {
+                font-size: 12px;
+              }
+            }
+          }
+
+          &--info {
+            font-size: 13px;
+
+            span {
+              font-size: 11px;
+            }
+          }
+          &--button{
+            margin-left: 20px;
+            padding: 7px 50px;
+          }
+        }
+      }
+
+    }
+  }
 }
+
 @media (max-width: 400px) {
+  #infoBook .infoBook--about__img {
+    width: 60%;
+  }
 }
+
 @media (max-width: 380px) {
 }
+
 @media (max-width: 360px) {
+  #infoBook .infoBook--details__format--line{
+    width: 250px;
+  }
+  #infoBook .infoBook--details__format--line1{
+    width: 250px;
+  }
+  #infoBook .infoBook--details__tittle--paragraph {
+    font-size: 10px;
+  }
 }
+
 @media (max-width: 320px) {
+  #infoBook .infoBook--about__book--button {
+    margin-left: 3px;
+  }
+  #infoBook .infoBook--about__img {
+    width: 70%;
+  }
 }
