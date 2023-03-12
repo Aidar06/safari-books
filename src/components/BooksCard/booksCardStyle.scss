@@ -71,6 +71,33 @@
       color: #000000;
     }
   }
+
+  &--btn2{
+    height: 35px;
+    width: 100%;
+    display: flex;
+    background: black;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 6px;
+    color: white;
+    div {
+      height: 15px;
+      width: 1px;
+      background: white;
+      margin: 0 6px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 27px;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+  }
 }
 
 @media (max-width: 1255px) {
