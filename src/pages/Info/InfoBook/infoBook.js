@@ -43,6 +43,34 @@ const InfoBook = ({setAuth}) => {
     }
     sentAuth()
 
+    function addBasket(){
+        let booksArr = JSON.parse(localStorage.getItem('books')) || []
+
+        let newBook = {
+            id: id,
+            title: title,
+            author: authors,
+            img: bookImg,
+            price: prise
+        }
+
+        let newBookArr = localStorage.setItem('books', JSON.stringify([...booksArr, newBook]))
+    }
+
+    const [check,setCheck] = useState(false)
+    let check1 = false
+    function checkBasket(){
+        let booksArr = JSON.parse(localStorage.getItem('books')) || []
+
+        booksArr.map(e => {
+            if (e.id === id){
+                check1 = true
+            }
+        })
+    }
+
+    checkBasket()
+
     return (
         <div>
             <div id="infoBook">
@@ -72,7 +100,12 @@ const InfoBook = ({setAuth}) => {
                                 <h3 className="infoBook--about__book--info">Age limit: <span>12+</span></h3>
                                 <h3 className="infoBook--about__book--info">Product code: <span>{prCod}</span></h3>
                                 <div>
-                                    <button className="infoBook--about__book--button">Add to basket</button>
+                                    {
+                                        check1 || check ?
+                                            <button style={{background: "black", color: "white"}} className="infoBook--about__book--button">Added</button>
+                                            :
+                                        <button onClick={()=> {addBasket(); setCheck(true)}} className="infoBook--about__book--button">Add to basket</button>
+                                    }
                                 </div>
                             </div>
                         </div>
