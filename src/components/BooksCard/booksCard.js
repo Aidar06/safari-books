@@ -32,7 +32,7 @@ const BooksCard = ({el}) => {
           <div className='card'>
               <div className='card--block'>
                   <div className='card--block__img'>
-                      <NavLink className='card--block__img--image' to={''}><img src={obgImg? el.volumeInfo.imageLinks.thumbnail : 'https://as1.ftcdn.net/v2/jpg/02/89/32/76/1000_F_289327646_ByOnWHB7CkxAL7G7lOaqeeY3RrLPazZb.jpg'} alt="not image"/></NavLink>
+                      <NavLink className='card--block__img--image' to={`/info/${el.id}`}><img src={obgImg? el.volumeInfo.imageLinks.thumbnail : 'https://as1.ftcdn.net/v2/jpg/02/89/32/76/1000_F_289327646_ByOnWHB7CkxAL7G7lOaqeeY3RrLPazZb.jpg'} alt="not image"/></NavLink>
                   </div>
                   <h1>{el.volumeInfo.title.length > 14 ? el.volumeInfo.title.slice(0,14) + '...': el.volumeInfo.title}</h1>
                   <h2>{author[0].length > 10 ? author[0].slice(0,10) + '...' : author[0]}</h2>

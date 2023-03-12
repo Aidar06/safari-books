@@ -1,38 +1,79 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {AiFillStar} from "react-icons/ai";
 import {AiOutlineCheckCircle} from "react-icons/ai";
 import OneHundred from "../../../assets/img/ONE HUNDRED YEARS OF SOLITUDE.png"
-const InfoBook = () => {
+import {useParams} from "react-router";
+import axios from "axios";
+import Split from 'react-split'
+const InfoBook = ({setAuth}) => {
+
+
+    const {id} = useParams()
+
+    const [info,setInfo] = useState({})
+    const [bookImg,setBookImg] = useState('')
+    const [prise,setPrise] = useState('')
+    const [des,setDes] = useState('')
+    const [prCod,setPrCod] = useState('')
+
+    const getInfo = async()=> {
+        try {
+            const res = await axios(`https://www.googleapis.com/books/v1/volumes/${id}`)
+            const {data} = await res
+            console.log(data)
+            await setInfo(data.volumeInfo)
+            await setPrCod(data.id)
+            await setDes(data.volumeInfo.description)
+            await setBookImg(data.volumeInfo.imageLinks.thumbnail)
+            await setPrise(data.saleInfo.isEbook ? Math.ceil(data.saleInfo.listPrice.amount * 80 === 0 ? 260 : data.saleInfo.listPrice.amount * 80) : 550)
+        }catch (e){
+            console.log(e,'error')
+        }
+    }
+
+    useEffect(()=> {
+        getInfo()
+    }, [])
+
+
+    let {title, authors, pageCount,averageRating,publishedDate,categories,language} = info
+
+    function sentAuth(){
+        setAuth(authors)
+    }
+    sentAuth()
+
     return (
         <div>
             <div id="infoBook">
                 <div className="container">
                     <div className="infoBook">
                         <div className="infoBook--about">
-                            <img className="infoBook--about__img" src={OneHundred} alt=""/>
+                            <img className="infoBook--about__img" src={bookImg} alt=""/>
                             <div className="infoBook--about__book">
-                                <h1 className="infoBook--about__book--tittle">ONE HUNDRED YEARS
-                                    OF SOLITUDE</h1>
-                                <p className="infoBook--about__book--author">By Gabriel Garcia Marquez</p>
+                                <h1 className="infoBook--about__book--tittle">{title}</h1>
+                                <p className="infoBook--about__book--author">{authors}</p>
                                 <div className="infoBook--about__book--string">
                                     <div className="infoBook--about__book--string__rating">
-                                        <h1 className="infoBook--about__book--string__rating--number">4,8</h1>
-                                        <AiFillStar className="infoBook--about__book--string__rating--star1"/>
-                                        <AiFillStar className="infoBook--about__book--string__rating--star"/>
-                                        <AiFillStar className="infoBook--about__book--string__rating--star"/>
-                                        <AiFillStar className="infoBook--about__book--string__rating--star"/>
-                                        <AiFillStar className="infoBook--about__book--string__rating--grey"/>
+                                        <h1 className="infoBook--about__book--string__rating--number">{averageRating}</h1>
+                                        <AiFillStar style={{color: Math.floor(averageRating) >= 1? 'yellow' : ''}} className="infoBook--about__book--string__rating--star1"/>
+                                        <AiFillStar style={{color: Math.floor(averageRating) >= 2? 'yellow' : ''}} className="infoBook--about__book--string__rating--star"/>
+                                        <AiFillStar style={{color: Math.floor(averageRating) >= 3? 'yellow' : ''}} className="infoBook--about__book--string__rating--star"/>
+                                        <AiFillStar style={{color: Math.floor(averageRating) >= 4? 'yellow' : ''}} className="infoBook--about__book--string__rating--star"/>
+                                        <AiFillStar style={{color: Math.floor(averageRating) >= 5? 'yellow' : ''}} className="infoBook--about__book--string__rating--grey"/>
                                     </div>
                                     <div className="infoBook--about__book--string__inStock">
                                         <AiOutlineCheckCircle className="infoBook--about__book--string__inStock--checkIcon"/>
                                         <p className="infoBook--about__book--string__inStock--tittle">In stock</p>
                                     </div>
                                 </div>
-                                <h3 className="infoBook--about__book--info">Price: <span>400c</span></h3>
-                                <h3 className="infoBook--about__book--info">Pages: <span>480</span></h3>
+                                <h3 className="infoBook--about__book--info">Price: <span>{prise}c</span></h3>
+                                <h3 className="infoBook--about__book--info">Pages: <span>{pageCount}</span></h3>
                                 <h3 className="infoBook--about__book--info">Age limit: <span>12+</span></h3>
-                                <h3 className="infoBook--about__book--info">Product code: <span>0988932145001</span></h3>
-                                <button className="infoBook--about__book--button">Add to basket</button>
+                                <h3 className="infoBook--about__book--info">Product code: <span>{prCod}</span></h3>
+                                <div>
+                                    <button className="infoBook--about__book--button">Add to basket</button>
+                                </div>
                             </div>
                         </div>
 
@@ -40,33 +81,19 @@ const InfoBook = () => {
 
                             <div className="infoBook--details__tittle">
                                 <p className="infoBook--details__tittle--paragraph">
-                                    &nbsp; "One Hundred Years of Solitude" by Gabriel Garcia <br/>
-                                    Marquez is a novel whose plot cannot be retold. This is a <br/>
-                                    work that needs to be felt and experienced. Generation <br/>
-                                    after generation of the Buendia family flashes before the <br/>
-                                    eyes of the reader. Among them are revolutionaries and <br/>
-                                    idlers, ardent mistresses and modest housewives. The <br/>
-                                    Buendia family grows together with the small town of <br/>
-                                    Macondo and dies with it. <br/>
-                                    <br/>
-                                    &nbsp; Marquez's book is filled with a variety of events: military <br/>
-                                    actions, incest, the birth of children, magic and miracles. <br/>
-                                    This dynamic kaleidoscope of life generates in the reader <br/>
-                                    the opposite feeling of the smooth, inexorable flow of time <br/>
-                                    and a sense of loneliness.
+                                    {des.toString().split('<i>').join('').split('</i>').join('').split('<b>').join('').split('<br>').join('').split('</b>').join('').split('<p>').join('').split('</p>').join('')}
                                 </p>
-                                <button className="infoBook--details__tittle--btn">Read reviews</button>
                             </div>
 
                             <div className="infoBook--details__format">
                                 <div className="infoBook--details__format--line1">
                                     <p className="infoBook--details__format--line1__paragraph">Author(s):</p>
-                                    <p className="infoBook--details__format--line1__paragraph">Gabriel Garcia Marquez</p>
+                                    <p className="infoBook--details__format--line1__paragraph">{authors}</p>
                                 </div>
 
                                 <div className="infoBook--details__format--line">
                                     <p className="infoBook--details__format--line__paragraph">Date of writing:</p>
-                                    <p className="infoBook--details__format--line__paragraph">16 june 1967</p>
+                                    <p className="infoBook--details__format--line__paragraph">{publishedDate}</p>
                                 </div>
 
                                 <div className="infoBook--details__format--line">
@@ -76,7 +103,7 @@ const InfoBook = () => {
 
                                 <div className="infoBook--details__format--line">
                                     <p className="infoBook--details__format--line__paragraph">Pages paper book:</p>
-                                    <p className="infoBook--details__format--line__paragraph">480</p>
+                                    <p className="infoBook--details__format--line__paragraph">{pageCount}</p>
                                 </div>
 
                                 <div className="infoBook--details__format--line">
@@ -86,12 +113,12 @@ const InfoBook = () => {
 
                                 <div className="infoBook--details__format--line">
                                     <p className="infoBook--details__format--line__paragraph">Categories:</p>
-                                    <p className="infoBook--details__format--line__paragraph">Novel</p>
+                                    <p className="infoBook--details__format--line__paragraph">{categories}</p>
                                 </div>
 
                                 <div className="infoBook--details__format--line">
                                     <p className="infoBook--details__format--line__paragraph">Languages:</p>
-                                    <p className="infoBook--details__format--line__paragraph">Russian, English</p>
+                                    <p className="infoBook--details__format--line__paragraph">{language}</p>
                                 </div>
 
                                 <div className="infoBook--details__format--line">
