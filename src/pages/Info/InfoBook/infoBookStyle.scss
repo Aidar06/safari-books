@@ -47,12 +47,12 @@
             }
 
             &--star1 {
-              color: #FFC121;
+              color: #C9C9C9;
               padding-left: 5px;
             }
 
             &--star {
-              color: #FFC121;
+              color: #C9C9C9;
             }
 
             &--grey {
@@ -112,6 +112,7 @@
       justify-content: space-around;
 
       &__tittle {
+        width: 50%;
         &--paragraph {
           font-size: 18px;
           font-weight: 300;
@@ -119,18 +120,7 @@
           line-height: 27px;
         }
 
-        &--btn {
-          font-family: 'Open Sans', sans-serif;
-          font-size: 20px;
-          font-weight: 400;
-          color: white;
-          background: black;
-          border-radius: 6px;
-          border: none;
-          padding: 10px 75px;
-          box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
-          margin-top: 50px;
-        }
+
       }
 
       &__format {
@@ -373,8 +363,8 @@
         }
 
         &__book {
+          width: 60%;
           &--button {
-            margin-left: 70px;
             font-size: 12px;
             padding: 8px 60px;
           }
@@ -388,6 +378,7 @@
         &__tittle {
           @include center;
           padding-bottom: 40px;
+          width: 100%;
 
           &--paragraph {
             font-size: 11px;
@@ -396,9 +387,7 @@
           }
 
           &--btn {
-            margin-bottom: 50px;
-            margin-top: 550px;
-            position: absolute;
+            margin-top: 30px;
           }
         }
 
@@ -436,6 +425,8 @@
     .infoBook {
       &--about {
         &__book {
+          width: 70%;
+
           &--tittle {
             font-size: 15px;
           }
@@ -478,7 +469,6 @@
             }
           }
           &--button{
-            margin-left: 20px;
             padding: 7px 50px;
           }
         }
@@ -489,9 +479,17 @@
 }
 
 @media (max-width: 400px) {
-  #infoBook .infoBook--about__img {
-    width: 60%;
+  #infoBook{
+    .infoBook--about{
+      &__img {
+        width: 60%;
+      }
+      &__book{
+        width: 90%;
+      }
+    }
   }
+
 }
 
 @media (max-width: 380px) {

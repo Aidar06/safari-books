@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {IoCloseOutline, IoEyeSharp} from "react-icons/io5";
 import {BsFillEyeSlashFill} from "react-icons/bs";
+import uniqid from "uniqid";
 
 const Signs = ({signUp,setSignUp,setSignIn,signIn}) => {
 
@@ -31,7 +32,7 @@ const Signs = ({signUp,setSignUp,setSignIn,signIn}) => {
         let newAcc = {
             name: name,
             gmail: gmail,
-            id: acc.length + 1,
+            id: uniqid(),
             password: password,
             inAcc: true
         }

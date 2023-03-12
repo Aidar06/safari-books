@@ -1,0 +1,56 @@
+#infoOther{
+  padding: 70px 0;
+  .infoOther{
+    &--title{
+      font-weight: 600;
+      font-size: 36px;
+      color: #000000;
+    }
+    &--group{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 70px 0;
+      &__img{
+        width: 25%;
+        img{
+          width: 100%;
+        }
+      }
+      &__block{
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #infoOther{
+    .infoOther{
+      &--group{
+        &__img{
+          width: 30%;
+        }
+        &__block{
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 860px) {
+  #infoOther{
+    .infoOther{
+      &--group{
+        &__img{
+          display: none;
+        }
+        &__block{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
