@@ -1,4 +1,4 @@
-import React, {useEffect, useState,useRef} from 'react';
+import React, {useEffect, useState, useRef, useContext} from 'react';
 import axios from "axios";
 import BooksCard from "../../BooksCard/booksCard";
 import book from './../../../assets/img/homeBooksImg.png'
@@ -12,8 +12,10 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 import {FreeMode, Pagination} from "swiper";
+import {Language} from "../../Context";
 
 const HomeBooks = () => {
+    const {language} = useContext(Language)
     let settings = {
         dots: false,
         infinite: false,
@@ -52,7 +54,7 @@ const HomeBooks = () => {
 
     const gitBooks= async()=> {
         try {
-            const res = await axios(`https://www.googleapis.com/books/v1/volumes?q=books&orderBy=newest&key=AIzaSyA5AsCAhvbZRq505icc2n-XSma-7IQNwA0`)
+            const res = await axios(`https://www.googleapis.com/books/v1/volumes?q=${language === 'en'? 'books' : language === 'ru'? 'книги' : 'китептер'}&orderBy=newest&key=AIzaSyA5AsCAhvbZRq505icc2n-XSma-7IQNwA0`)
             const {data} = await res
             await serBooks(data.items)
         }catch (e){
@@ -77,7 +79,7 @@ const HomeBooks = () => {
     useEffect(()=> {
         gitBooks()
         getTapsBook()
-    }, [tap])
+    }, [tap,language])
 
     return (
         <section id='homeBooks'>
@@ -85,17 +87,17 @@ const HomeBooks = () => {
                 <div className="homeBooks">
                     <div className="homeBooks--taps">
                         <div className="homeBooks--taps__links">
-                            <div onClick={()=> setTap('new')} className="homeBooks--taps__links--block">
-                                <h3 style={{color: tap === 'new'? 'orange': ''}}>New</h3>
-                                <div style={{background: tap === 'new'? 'orange': ''}}></div>
+                            <div onClick={()=> setTap(language === 'en'? 'new': language === 'ru' ? 'новый' : 'жаңы')} className="homeBooks--taps__links--block">
+                                <h3 style={{color: tap === 'new' || 'новый' || 'жаңы'? 'orange': ''}}>{language === 'en'? 'New': language === 'ru' ? 'новый' : 'жаңы'}</h3>
+                                <div style={{background: tap === 'new' || 'новый' || 'жаңы'? 'orange': ''}}></div>
                             </div>
-                            <div onClick={()=> setTap('popular')} className="homeBooks--taps__links--block">
-                                <h3 style={{color: tap === 'popular'? 'orange': ''}}>Popular</h3>
-                                <div style={{background: tap === 'popular'? 'orange': ''}}></div>
+                            <div onClick={()=> setTap(language === 'en'? 'Popular': language === 'ru' ? 'Популярный' : 'танымал')} className="homeBooks--taps__links--block">
+                                <h3 style={{color: tap === 'popular' || 'Популярный' || 'танымал'? 'orange': ''}}>{language === 'en'? 'Popular': language === 'ru' ? 'Популярный' : 'танымал'}</h3>
+                                <div style={{background: tap === 'popular' || 'Популярный' || 'танымал'? 'orange': ''}}></div>
                             </div>
-                            <div onClick={()=> setTap('bestsellers')} className="homeBooks--taps__links--block">
-                                <h3 style={{color: tap === 'bestsellers'? 'orange': ''}}>Bestsellers</h3>
-                                <div style={{background: tap === 'bestsellers'? 'orange': ''}}></div>
+                            <div onClick={()=> setTap(language === 'en'? 'Bestsellers': language === 'ru' ? 'Бестселлеры' : 'жакшы')} className="homeBooks--taps__links--block">
+                                <h3 style={{color: tap === 'bestsellers' || 'Бестселлеры' || 'жакшы'? 'orange': ''}}>{language === 'en'? 'Bestsellers': language === 'ru' ? 'Бестселлеры' : 'сатылуучулар'}</h3>
+                                <div style={{background: tap === 'bestsellers' || 'Бестселлеры' || 'жакшы'? 'orange': ''}}></div>
                             </div>
                         </div>
                             <Slider {...settings}>
