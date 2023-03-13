@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
 import {IoIosArrowForward} from "react-icons/io";
 import {logDOM} from "@testing-library/react";
+import {Language} from "../Context";
 
 
 const Menu = ({menu,setMenu,signIn,setSignIn,signUp,setSignUp}) => {
@@ -30,6 +31,8 @@ const Menu = ({menu,setMenu,signIn,setSignIn,signUp,setSignUp}) => {
     }
     getAccount()
 
+    const {language,setLanguage} = useContext(Language)
+
     return (
         <div className='menu' style={{
             left: menu? '': '-130%'
@@ -38,9 +41,9 @@ const Menu = ({menu,setMenu,signIn,setSignIn,signUp,setSignUp}) => {
                 <div className='menu--group'>
                     <div className="menu--group__btn">
                             <div>
-                                <h2 style={{color: 'black'}}>Kgz</h2>
-                                <h2 style={{color: 'black'}}>Ru</h2>
-                                <h2 style={{color: 'black'}}>En</h2>
+                                <h2  onClick={()=> setLanguage('kg')} style={{color: language === 'kg' ? 'rgba(0, 0, 0, 0.58)' : 'black'}}>Kgz</h2>
+                                <h2  onClick={()=> setLanguage('ru')} style={{color: language === 'ru' ? 'rgba(0, 0, 0, 0.58)' : 'black'}}>Ru</h2>
+                                <h2  onClick={()=> setLanguage('en')} style={{color: language === 'en' ? 'rgba(0, 0, 0, 0.58)' : 'black'}}>En</h2>
                             </div>
                         {
                             accIn? <NavLink to={'/account'}>

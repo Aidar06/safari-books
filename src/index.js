@@ -6,12 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Contacts from "./pages/Contacts/contacts";
+import Context from "./components/Context/context";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <BrowserRouter>
-          <App />
+          <Context>
+              <App />
+          </Context>
       </BrowserRouter>
   </React.StrictMode>
 );

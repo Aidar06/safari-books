@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
 import {BiSearchAlt} from "react-icons/bi";
 import {RiShoppingBag2Line} from "react-icons/ri";
 import {SlMenu} from "react-icons/sl";
 import {GrClose} from "react-icons/gr";
 import Menu from "../BurgerMenu/menu";
+import {Language} from "../Context";
 
 const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
     const navigate = useNavigate()
@@ -52,6 +53,8 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
     }
     getAccount()
 
+    const {language,setLanguage} = useContext(Language)
+
     return (
         <header id='header'>
             <div className="container">
@@ -75,9 +78,9 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                         </div>
                         <div className='header--navbar__block'>
                             <div>
-                                <h2>Kgz</h2>
-                                <h2>Ru</h2>
-                                <h2>En</h2>
+                                <h2 onClick={()=> setLanguage('kg')} style={{color: language === 'kg' ? 'rgba(0, 0, 0, 0.58)' : ''}}>Kgz</h2>
+                                <h2 onClick={()=> setLanguage('ru')} style={{color: language === 'ru' ? 'rgba(0, 0, 0, 0.58)' : ''}}>Ru</h2>
+                                <h2 onClick={()=> setLanguage('en')} style={{color: language === 'en' ? 'rgba(0, 0, 0, 0.58)' : ''}}>En</h2>
                             </div>
 
                             {
