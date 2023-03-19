@@ -7,11 +7,12 @@
 
   .about {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     padding: 7% 0;
 
     &--two {
+      width: 55%;
       &__tittle {
         font-size: 36px;
         color: black;
@@ -70,6 +71,7 @@
 
     .about {
       &--two {
+        width: 100%;
         &__paragraph {
           font-size: 18px;
           line-height: 24px;

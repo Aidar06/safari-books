@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import BooksCard from "../../components/BooksCard/booksCard";
 import {useParams} from "react-router";
+import {Language} from "../../components/Context";
 
 const Search = () => {
+    const {language} = useContext(Language)
     const {book} = useParams()
 
     const [books, serBooks] = useState([])
@@ -34,7 +36,7 @@ const Search = () => {
                                </div>
                            ))
                            :
-                           <h1 className='search--text'>Nothing found for your request</h1>
+                           <h1 className='search--text'>{language === 'en'? 'Nothing found for your request': language === 'ru' ? 'По вашему запросу ничего не найдено' : 'Сурамыңыз боюнча эч нерсе табылган жок'}</h1>
                    }
                </div>
            </div>

@@ -10,7 +10,7 @@ const HomeHero = () => {
             <div className="container">
                 <div className="block">
                     <h1 className="block--book">{
-                        language === 'en'? 'BUY BOOKS WHEREVER YOU ARE': language === 'ru' ? 'ПОКУПАЙТЕ КНИГИ, ГДЕ ВЫ НАХОДИТЕСЬ' : 'КИТЕПТЕРДИ КАЙДА БОЛСОНУЗДА САТЫП АЛЫҢЫЗ'
+                        language === 'en'? 'BUY BOOKS WHEREVER YOU ARE': language === 'ru' ? 'ПОКУПАЙТЕ КНИГИ, ГДЕ ВЫ НАХОДИТЕСЬ' : 'КИТЕПТЕРДИ САТЫП АЛЫҢЫЗ'
                     }</h1>
                 </div>
             </div>

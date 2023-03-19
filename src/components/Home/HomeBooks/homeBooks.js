@@ -88,16 +88,16 @@ const HomeBooks = () => {
                     <div className="homeBooks--taps">
                         <div className="homeBooks--taps__links">
                             <div onClick={()=> setTap(language === 'en'? 'new': language === 'ru' ? 'новый' : 'жаңы')} className="homeBooks--taps__links--block">
-                                <h3 style={{color: tap === 'new' || 'новый' || 'жаңы'? 'orange': ''}}>{language === 'en'? 'New': language === 'ru' ? 'новый' : 'жаңы'}</h3>
-                                <div style={{background: tap === 'new' || 'новый' || 'жаңы'? 'orange': ''}}></div>
+                                <h3 style={{color: tap === 'new' || tap === 'новый' || tap === 'жаңы'? 'orange': ''}}>{language === 'en'? 'New': language === 'ru' ? 'новый' : 'жаңы'}</h3>
+                                <div style={{background: tap === 'new' || tap === 'новый' || tap === 'жаңы'? 'orange': ''}}></div>
                             </div>
                             <div onClick={()=> setTap(language === 'en'? 'Popular': language === 'ru' ? 'Популярный' : 'танымал')} className="homeBooks--taps__links--block">
-                                <h3 style={{color: tap === 'popular' || 'Популярный' || 'танымал'? 'orange': ''}}>{language === 'en'? 'Popular': language === 'ru' ? 'Популярный' : 'танымал'}</h3>
-                                <div style={{background: tap === 'popular' || 'Популярный' || 'танымал'? 'orange': ''}}></div>
+                                <h3 style={{color: tap === 'Popular' || tap === 'Популярный' || tap === 'танымал'? 'orange': ''}}>{language === 'en'? 'Popular': language === 'ru' ? 'Популярный' : 'танымал'}</h3>
+                                <div style={{background: tap === 'popular' || tap === 'Популярный' || tap === 'танымал'? 'orange': ''}}></div>
                             </div>
                             <div onClick={()=> setTap(language === 'en'? 'Bestsellers': language === 'ru' ? 'Бестселлеры' : 'жакшы')} className="homeBooks--taps__links--block">
-                                <h3 style={{color: tap === 'bestsellers' || 'Бестселлеры' || 'жакшы'? 'orange': ''}}>{language === 'en'? 'Bestsellers': language === 'ru' ? 'Бестселлеры' : 'сатылуучулар'}</h3>
-                                <div style={{background: tap === 'bestsellers' || 'Бестселлеры' || 'жакшы'? 'orange': ''}}></div>
+                                <h3 style={{color: tap === 'Bestsellers' || tap === 'Бестселлеры' || tap === 'жакшы'? 'orange': ''}}>{language === 'en'? 'Bestsellers': language === 'ru' ? 'Бестселлеры' : 'сатылуучулар'}</h3>
+                                <div style={{background: tap === 'bestsellers' || tap === 'Бестселлеры' || tap === 'жакшы'? 'orange': ''}}></div>
                             </div>
                         </div>
                             <Slider {...settings}>
