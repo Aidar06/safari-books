@@ -54,33 +54,33 @@ const Menu = ({menu,setMenu,signIn,setSignIn,signUp,setSignUp}) => {
                                 </div>
                             </NavLink>:
                                 <div className='menu--group__btn--buttons'>
-                                    <button onClick={()=> {setSignUp(!signUp); setMenu(!menu)}}>sing up</button>
-                                    <button onClick={()=> {setSignIn(!signIn); setMenu(!menu)}}>sing in</button>
+                                    <button onClick={()=> {setSignUp(!signUp); setMenu(!menu)}}>{language === 'en'? 'Sign up': language === 'ru' ? 'регист' : 'катталуу'}</button>
+                                    <button onClick={()=> {setSignIn(!signIn); setMenu(!menu)}}>{language === 'en'? 'Sign up': language === 'ru' ? 'Войти' : 'Кирүү'}</button>
                                 </div>
                         }
 
                     </div>
                     <div className="menu--group__nav">
-                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/about'}>About us</NavLink></span>
+                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/about'}>{language === 'en'? 'About us': language === 'ru' ? 'О нас' : 'Биз жөнүндө'}</NavLink></span>
                         <div>
                             <select onChange={(e)=> {navToCat(e.target.value); setMenu(!menu)}}>
-                                <option>Fiction</option>
-                                <option>Children`s book</option>
-                                <option>Books for teenagers</option>
-                                <option>Self-education and development</option>
-                                <option>Business literature</option>
-                                <option>Hobbies and leisure</option>
-                                <option>Pedagogy and education</option>
-                                <option>Popular science literature</option>
-                                <option>Publicism</option>
-                                <option>Religion</option>
-                                <option>Exclusive Products</option>
+                                <option>{language === 'en'? 'Fiction': language === 'ru' ? 'Вымысел' : 'калп'}</option>
+                                <option>{language === 'en'? 'Children`s book': language === 'ru' ? 'Детская книга' : 'Балдар китеби'}</option>
+                                <option>{language === 'en'? 'Books for teenagers': language === 'ru' ? 'Книги для подростков' : 'Өспүрүмдөр үчүн китептер'}</option>
+                                <option>{language === 'en'? 'SSelf-development': language === 'ru' ? 'Саморазвитие' : 'Өзүн-өзү өнүктүрүү'}</option>
+                                <option>{language === 'en'? 'Business literature': language === 'ru' ? 'Деловая литература' : 'Бизнес адабияты'}</option>
+                                <option>{language === 'en'? 'Hobbies': language === 'ru' ? 'Хобби и досуг' : 'Хобби жана эс алуу'}</option>
+                                <option>{language === 'en'? 'Pedagogy and education': language === 'ru' ? 'Педагогика и образование' : 'Педагогика жана билим берүү'}</option>
+                                <option>{language === 'en'? 'Popular science literature': language === 'ru' ? 'Научно-популярная литература' : 'Илимий-популярдуу адабият'}</option>
+                                <option>{language === 'en'? 'Publicism': language === 'ru' ? 'Публицистика' : 'Публицистика'}</option>
+                                <option>{language === 'en'? 'Religion': language === 'ru' ? 'Религия' : 'Дин жөнүндө'}</option>
+                                <option>{language === 'en'? 'Exclusive Products': language === 'ru' ? 'Эксклюзивные продукты' : 'Exclusive Products'}</option>
                             </select>
                             <IoIosArrowForward className='menu-icon'/>
                         </div>
-                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/contacts'}>Contacts</NavLink></span>
-                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/payment'}>Payment</NavLink></span>
-                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/payment'}>Delivery</NavLink></span>
+                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/contacts'}>{language === 'en'? 'Contacts': language === 'ru' ? 'Контакт' : 'Контакт'}</NavLink></span>
+                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/payment'}>{language === 'en'? 'Payment': language === 'ru' ? 'Оплата' : 'Төлөм'}</NavLink></span>
+                        <span onClick={()=> setMenu(!menu)}><NavLink className='menu--group__nav--a' to={'/payment'}>{language === 'en'? 'Delivery': language === 'ru' ? 'Доставка' : 'Жеткирүү'}</NavLink></span>
                     </div>
                 </div>
             </div>

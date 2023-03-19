@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {GrDeliver} from "react-icons/gr";
 import { MdPayments} from "react-icons/md";
 import {SiVisa} from "react-icons/si";
 import {RiDeleteBinLine} from "react-icons/ri";
+import {Language} from "../../components/Context";
 
 const Payment = () => {
+    const {language} = useContext(Language)
     const [counter, setCounter] = useState(false)
     const [user, setUser] = useState(false)
     const [done, setDone] = useState(false)
@@ -28,10 +30,10 @@ const Payment = () => {
                 <div className='payment'>
                     <div className='payment--block'>
                         <div className='payment--block__basket'>
-                            <h1 style={{display: books.length !== 0 ? '' : 'none'}} className='payment--block__basket--text'>Continue shopping</h1>
+                            <h1 style={{display: books.length !== 0 ? '' : 'none'}} className='payment--block__basket--text'>{language === 'en'? 'Continue shopping:': language === 'ru' ? 'Сооданы улантыңыз:' : 'Сооданы улантыңыз:'}</h1>
                             {
                                 upDate? books.map(el => (
-                                    <div className='payment--block__basket--block'>
+                                    <div className='payment--block__basket--block' key={el.id}>
                                         <div className='payment--block__basket--block__img'>
                                             <img src={el.img} alt=""/>
                                         </div>
@@ -51,53 +53,53 @@ const Payment = () => {
                                     </div>
                                 )): setUpDate(true)
                             }
-                            <h4 style={{display: books.length !== 0 ? 'none' : '', padding:'60px 0'}}>nothing found in the cart</h4>
+                            <h4 style={{display: books.length !== 0 ? 'none' : '', padding:'60px 0'}}>{language === 'en'? 'nothing found in the cart': language === 'ru' ? 'ничего не найдено в корзине' : 'арабада эч нерсе жок'}</h4>
                         </div>
                         <div className='payment--block__delivery'>
                             <div className='payment--block__delivery--icon'>
                                 <div className='payment--block__delivery--icon__start'>
                                     <GrDeliver style={{fontSize: '30px'}}/>
-                                    <h4>Delivery</h4>
+                                    <h4>{language === 'en'? 'Delivery': language === 'ru' ? 'Доставка' : 'Жеткирүү'}</h4>
                                 </div>
                                 <div className='payment--block__delivery--icon__option'>
                                     <select>
                                         <option>
-                                            Chui
+                                            {language === 'en'? 'Chui': language === 'ru' ? 'Чуй' : 'Чуй'}
                                         </option>
                                         <option>
-                                            Talas
+                                            {language === 'en'? 'Talas': language === 'ru' ? 'Талас' : 'Талас'}
                                         </option>
                                         <option>
-                                            Jalal-Abad
+                                            {language === 'en'? 'Jalal-Abad': language === 'ru' ? 'Жалал-Абад' : 'Жалал-Абад'}
                                         </option>
                                         <option>
-                                            Ysyk-kol
+                                            {language === 'en'? 'Ysyk-kol': language === 'ru' ? 'Исык-Куль' : 'Ысык-Кол'}
                                         </option>
                                         <option>
-                                            Batken
+                                            {language === 'en'? 'Batken': language === 'ru' ? 'Баткен' : 'Баткен'}
                                         </option>
                                         <option>
-                                            Osh
+                                            {language === 'en'? 'Osh': language === 'ru' ? 'Ош' : 'Ош'}
                                         </option>
                                         <option>
-                                            Naryn
+                                            {language === 'en'? 'Naryn': language === 'ru' ? 'Нарын' : 'Нарын'}
                                         </option>
                                     </select>
                                 </div>
                                 <div className='payment--block__delivery--icon__input'>
                                     <div className='payment--block__delivery--icon__input--page'>
-                                        <p>Address</p>
+                                        <p>{language === 'en'? 'Address:': language === 'ru' ? 'Адрес:' : 'Адрес:'}</p>
                                         <input type="text"/>
                                     </div>
                                     <div className='payment--block__delivery--icon__input--page'>
-                                        <p>Phone number</p>
+                                        <p>{language === 'en'? 'Phone number:': language === 'ru' ? 'Номер телефона:' : 'Тел номери:'}</p>
                                         <input type="number"/>
                                     </div>
                                     <button onClick={() => setCounter(true)} style={{
                                         background: counter ? "white" : "",
                                         color: counter ? "black" : '',
                                         transition: ".4s"
-                                    }}>{!counter ? "Confirm" : "Confirmed"}</button>
+                                    }}>{!counter ? language === 'en'? 'Confirm': language === 'ru' ? 'Подтверждать' : 'ырастоо' : language === 'en'? 'Confirmed': language === 'ru' ? 'Подтвержденный' : 'Ырасталды'}</button>
                                 </div>
                             </div>
                         </div>
@@ -105,18 +107,18 @@ const Payment = () => {
                     <div className='payment--project'>
                         <div className='payment--project__title'>
                             <div className='payment--project__title--text'>
-                                <h4>Payment</h4>
+                                <h4>{language === 'en'? 'Payment': language === 'ru' ? 'Оплата' : 'Төлөм'}</h4>
                                 <MdPayments className="icons"/>
                             </div>
                             <div className='payment--project__title--input'>
-                                <p>Card number</p>
+                                <p>{language === 'en'? 'Card number': language === 'ru' ? 'Номер карты' : 'Картанын номери'}</p>
                                 <div>
                                     <input type="number"/>
                                 </div>
                                 <SiVisa className='visa'/>
                             </div>
                             <div className="payment--project__title--nav">
-                                <p>Validity period</p>
+                                <p>{language === 'en'? 'Validity period': language === 'ru' ? 'Срок годности' : 'Жарактуулук мөөнөтү'}</p>
                                 <div className="payment--project__title--nav__text">
                                     <input type="text" placeholder="MONTH" className="input"/>
                                     <h1>/</h1>
@@ -128,22 +130,22 @@ const Payment = () => {
                             </div>
                             <div className="payment--project__title--need">
                                 <input type="checkbox"/>
-                                <h5>Need a cheque</h5>
+                                <h5>{language === 'en'? 'Need a cheque': language === 'ru' ? 'Нужен чек' : 'Чек керек'}</h5>
                             </div>
                             <button onClick={() => setDone(true) } style={{
                                 transition: done ? ".4s" : ''
                             }
-                            }>{!done ? "Pay" : "Done"}</button>
+                            }>{!done ?  language === 'en'? 'Pay': language === 'ru' ? 'Платить' : 'Төлө' : language === 'en'? 'Done': language === 'ru' ? 'Оплачено' : 'Төлөнду'}</button>
                         </div>
                         <div className='payment--project__method'>
-                            <h2>Payment method</h2>
-                            <div><input type="checkbox"/>Credit card</div>
-                            <div><input type="checkbox"/>Cash</div>
+                            <h2>{language === 'en'? 'Payment method': language === 'ru' ? 'Способ оплаты' : 'Төлөө ыкмасы'}</h2>
+                            <div><input type="checkbox"/>{language === 'en'? 'Credit card': language === 'ru' ? 'Кредитная карта' : 'Кредиттик карта'}</div>
+                            <div><input type="checkbox"/>{language === 'en'? 'Cash': language === 'ru' ? 'Наличные' : 'Накталай акча'}</div>
                             <button  onClick={() => setUser(true)} style={{
                                 background: user ? "white" : "",
                                 color: user ? "black" : '',
                                 transition: ".4s"
-                            }}>{!user ? "Confirm" : "Confirmed"}</button>
+                            }}>{!user ? language === 'en'? 'Confirm': language === 'ru' ? 'Подтверждать' : 'ырастоо' : language === 'en'? 'Confirmed': language === 'ru' ? 'Подтвержденный' : 'Ырасталды'}</button>
                         </div>
                     </div>
                 </div>

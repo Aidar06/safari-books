@@ -1,22 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {IoCallOutline} from "react-icons/io5";
 import {HiOutlineMail} from "react-icons/hi";
 import {GrInstagram} from "react-icons/gr";
 import {SiGooglemaps} from "react-icons/si";
+import {Language} from "../../components/Context";
 const Contacts = () => {
+    const {language} = useContext(Language)
     return (
         <section id='contact'>
             <div className='container'>
                 <div className='contact'>
                     <div className='contact--block'>
                         <IoCallOutline className='contact--block__icon1'/>
-                        <h4>Phone number:</h4>
+                        <h4>{language === 'en'? 'Phone number:': language === 'ru' ? 'Номер телефона:' : 'Тел номери:'}</h4>
                         <p>(+996)557-30-02-30</p>
                         <p>(+996)220-42-42-08</p>
                     </div>
                     <div className='contact--block'>
                         <HiOutlineMail className='contact--block__icon1'/>
-                        <h4>Email address:</h4>
+                        <h4>{language === 'en'? 'Email address:': language === 'ru' ? 'электронной почта:' : 'Электрондук почта:'}</h4>
                         <a href="https://instagram.com/motion_web?igshid=YmMyMTA2M2Y=">motion@mail.com</a>
                     </div>
                     <div className='contact--block'>
@@ -26,7 +28,7 @@ const Contacts = () => {
                     </div>
                     <div className='contact--block'>
                         <SiGooglemaps className='contact--block__icon1'/>
-                        <h4>Address:</h4>
+                        <h4>{language === 'en'? 'Address:': language === 'ru' ? 'Адрес:' : 'Адрес:'}</h4>
                         <p>Bishkek, Kievskaya st., 152/5</p>
                     </div>
                 </div>

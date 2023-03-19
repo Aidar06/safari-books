@@ -9,7 +9,6 @@ import {Language} from "../Context";
 
 const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
     const navigate = useNavigate()
-
     const navTo=()=>{
         navigate('/payment')
     }
@@ -71,10 +70,10 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                             <NavLink to={'/'}>
                                 <h1>Book Shop</h1>
                             </NavLink>
-                            <NavLink className='header--navbar__nav--a' to={'/about'}>About us</NavLink>
-                            <NavLink className='header--navbar__nav--a' to={'/contacts'}>Contacts</NavLink>
-                            <NavLink className='header--navbar__nav--a' to={'/payment'}>Payment</NavLink>
-                            <NavLink className='header--navbar__nav--a' to={'/payment'}>Delivery</NavLink>
+                            <NavLink className='header--navbar__nav--a' to={'/about'}>{language === 'en'? 'About us': language === 'ru' ? 'О нас' : 'Биз жөнүндө'}</NavLink>
+                            <NavLink className='header--navbar__nav--a' to={'/contacts'}>{language === 'en'? 'Contacts': language === 'ru' ? 'Контакт' : 'Контакт'}</NavLink>
+                            <NavLink className='header--navbar__nav--a' to={'/payment'}>{language === 'en'? 'Payment': language === 'ru' ? 'Оплата' : 'Төлөм'}</NavLink>
+                            <NavLink className='header--navbar__nav--a' to={'/payment'}>{language === 'en'? 'Delivery': language === 'ru' ? 'Доставка' : 'Жеткирүү'}</NavLink>
                         </div>
                         <div className='header--navbar__block'>
                             <div>
@@ -92,8 +91,8 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                                         </div>
                                     </NavLink>:
                                   <div>
-                                      <button onClick={()=> setSignUp(!signUp)}>Sign up</button>
-                                      <button onClick={()=> setSignIn(!signIn)}>Sign in</button>
+                                      <button onClick={()=> setSignUp(!signUp)}>{language === 'en'? 'Sign up': language === 'ru' ? 'регист' : 'катталуу'}</button>
+                                      <button onClick={()=> setSignIn(!signIn)}>{language === 'en'? 'Sign up': language === 'ru' ? 'Войти' : 'Кирүү'}</button>
                                   </div>
                             }
                         </div>
@@ -106,18 +105,18 @@ const Header = ({menu,setMenu,signUp,setSignUp,setSignIn,signIn}) => {
                     </div>
                     <div className="header--link">
                         <div className="header--link__search">
-                            <button onClick={()=> navToCat()}>Catalog</button>
+                            <button onClick={()=> navToCat()}>{language === 'en'? 'Catalog': language === 'ru' ? 'Каталог' : 'Каталог'}</button>
                             <div style={{
                                 border: input ? '' : '1px solid red'
                             }} className="header--link__search--searcher">
                                 <BiSearchAlt onClick={()=> navTpSearch()} className='header--link__search--searcher--icon'/>
                                 <input onKeyDown={(e) => {
                                     if (e.key === 'Enter') navTpSearch()
-                                }} onChange={(e)=> setValue(e.target.value)} type="text" placeholder='Search for title or author'/>
+                                }} onChange={(e)=> setValue(e.target.value)} type="text" placeholder={language === 'en'? 'Search for title or author': language === 'ru' ? 'Поиск по названию или автору' : 'Аталышын же авторун изде'}/>
                             </div>
                         </div>
                         <div onClick={()=> navTo()} className="header--link__basket">
-                            <p>Basket</p>
+                            <p>{language === 'en'? 'Basket': language === 'ru' ? 'Корзина' : 'Себет'}</p>
                             <div></div>
                             <RiShoppingBag2Line/>
                         </div>
